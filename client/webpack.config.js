@@ -15,6 +15,7 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      PORT: '3000',
     }),
   ],
   resolve: {
