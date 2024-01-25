@@ -1,0 +1,23 @@
+FROM node:16-alpine3.12 as build
+
+WORKDIR /app
+
+COPY package.json /app
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:1.21.6-alpine
+
+WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*
+
+COPY --from=build /app/dist .
+
+RUN apk add --no-cache bash
+
+CMD ["/bin/bash", "-c", "nginx -g \"daemon off;\""]

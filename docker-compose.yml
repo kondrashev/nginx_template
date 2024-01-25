@@ -1,0 +1,47 @@
+version: '3'
+services:
+  database:
+    container_name: database
+    image: 'postgres:14'
+    ports:
+      - 5434:5434
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=nginx
+    volumes:
+      - nps_data:/var/lib/postgresql/data
+    restart: always
+  server:
+    container_name: server
+    platform: linux/amd64
+    build:
+      context: ./server
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - DB_NAME=nginx
+      - DB_USER=postgres
+      - DB_PASSWORD=1234
+      - DB_HOST=database
+    links:
+      - database
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+  client:
+    container_name: client
+    platform: linux/amd64
+    build:
+      context: ./client
+    restart: always
+    ports:
+      - 80:4000
+    links:
+      - server
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+volumes:
+  nps_data: {}

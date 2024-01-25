@@ -1,0 +1,26 @@
+name: Deploy React Application
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - ".github/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.15.0]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm ci
+      - name: build
+        run: npm run build
+      - name: docker
+        run: docker compose build
