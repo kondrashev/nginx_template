@@ -18,6 +18,4 @@ RUN rm -rf ./*
 
 COPY --from=build /app/dist .
 
-RUN apk add --no-cache bash
-
-CMD ["/bin/bash", "-c", "nginx -g \"daemon off;\""]
+CMD ["nginx", "-g", "daemon off;"]
