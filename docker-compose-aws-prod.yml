@@ -41,18 +41,22 @@ services:
     image: nginx:latest
     volumes:
       - ./:/etc/nginx/conf.d/:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /tmp/acme_challenge:/tmp/acme_challenge
     ports:
       - 80:80
       - 443:443
   certbot:
-    image: certbot/certbot:latest
+    container_name: certbot
     depends_on:
       - nginx
-    container_name: certbot
+    image: certbot/certbot
+    command: sh -c "certbot certonly --webroot -w /tmp/acme_challenge -d ntuu-kpi-rating.com --text --agree-tos --email kondrashev@ukr.net --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
+    entrypoint: ''
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /tmp/acme_challenge:/tmp/acme_challenge
+    environment:
+      - TERM=xterm
 volumes:
   nps_data: {}
