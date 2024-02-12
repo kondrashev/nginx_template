@@ -37,7 +37,7 @@ const { serve, setup } = swaggerUi;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const swaggerDocs = (app: Express, port: string) => {
-  app.use('/docs', serve, setup(swaggerSpec));
+  app.use('/swagger', serve, setup(swaggerSpec));
   app.get('docs.json', (res: Response) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);

@@ -1,9 +1,0 @@
-version: '3'
-services:
-  certbot:
-    container_name: certbot
-    image: certbot/certbot
-    command: sh -c "certbot certonly --webroot -w /tmp/acme_challenge -d ntuu-kpi-rating.com --text --agree-tos --email kondrashev@ukr.net --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /tmp/acme_challenge:/tmp/acme_challenge

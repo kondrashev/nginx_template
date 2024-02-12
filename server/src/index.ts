@@ -10,8 +10,8 @@ import endpoints from '../constants/endpoints';
 import router from '../src/routes/index';
 import connection from './database/connection';
 import User from './database/models/user';
-import swaggerDocs from './documentation/swagger';
 import errorHandler from './middleware/ErrorHandlingMiddleware';
+import swaggerDocs from './swagger/swagger';
 
 const PORT = process.env.PORT;
 const app = express();
