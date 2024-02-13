@@ -51,7 +51,7 @@ services:
       - client
     image: nginx:latest
     volumes:
-      - ./nginx:/etc/nginx/conf.d/:ro
+      - ./:/etc/nginx/conf.d/:ro
     ports:
       - 80:80
 volumes:
