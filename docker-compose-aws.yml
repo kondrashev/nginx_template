@@ -29,8 +29,6 @@ services:
     container_name: client
     image: kondrashev/nginx_client:latest
     restart: always
-    environment:
-      API_BASE_URL: server
     links:
       - server
   nginx:

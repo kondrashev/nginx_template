@@ -27,23 +27,15 @@ services:
       - 3000:3000
     links:
       - database
-    volumes:
-      - /app/node_modules
-      - ./server:/app
   client:
     container_name: client
     platform: linux/amd64
     build:
-      dockerfile: Dockerfile.aws
+      dockerfile: nginx.Dockerfile
       context: ./client
     restart: always
-    environment:
-      API_BASE_URL: server
     links:
       - server
-    volumes:
-      - /app/node_modules
-      - ./client:/app
   nginx:
     container_name: nginx
     depends_on:

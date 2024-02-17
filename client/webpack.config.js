@@ -13,9 +13,8 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
     }),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-      PORT: '3000',
+    new webpack.DefinePlugin({
+      'process.env.env': JSON.stringify(process.env.env),
     }),
   ],
   resolve: {
