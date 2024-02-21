@@ -1,11 +1,11 @@
 #To start these commands necessary to run this => /make -j 1 start/
 start: 1 2 3 4 5 6 7 8 9 10
 1:
-	echo "Running docker-compose stop"
-	docker-compose -f docker-compose-nginx.yml down
+	echo "Running docker-compose -f docker-compose-nginx.yml stop"
+	docker-compose down
 2:
-	echo "Running docker-compose build"
-	docker-compose -f docker-compose-nginx.yml build
+	echo "Running docker-compose -f docker-compose-nginx.yml build"
+	docker-compose build
 3:
 	echo "Docker delete image server"
 	docker rmi kondrashev/nginx_server:latest
@@ -28,5 +28,5 @@ start: 1 2 3 4 5 6 7 8 9 10
 	echo "Docker push image client"
 	docker push kondrashev/nginx_client
 10:
-	echo "Running docker-compose start"
-	docker-compose -f docker-compose-nginx.yml up -d
+	echo "Running docker-compose -f docker-compose-nginx.yml start"
+	docker-compose up -d

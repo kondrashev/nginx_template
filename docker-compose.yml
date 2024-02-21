@@ -18,13 +18,13 @@ services:
     build:
       context: ./server
     restart: always
-    ports:
-      - 3000:3000
     environment:
       - DB_NAME=nginx
       - DB_USER=postgres
       - DB_PASSWORD=1234
       - DB_HOST=database
+    ports:
+      - 3000:3000
     links:
       - database
     volumes:
@@ -34,6 +34,7 @@ services:
     container_name: client
     platform: linux/amd64
     build:
+      dockerfile: Dockerfile
       context: ./client
     restart: always
     ports:
