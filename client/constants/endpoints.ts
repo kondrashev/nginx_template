@@ -1,5 +1,7 @@
+import { API_BASE_URL } from './constants';
+
 export default {
-  userRouter: 'api',
+  userRouter: API_BASE_URL,
   checkAuthorization: '/check',
   getUsers: '/get/users',
   addUser: '/add/user',

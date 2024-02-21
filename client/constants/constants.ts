@@ -1,3 +1,5 @@
+export const API_BASE_URL = process.env.env === 'development' ? 'http://localhost:3000' : 'api';
+
 export interface IUser {
   id?: number;
   login: string;

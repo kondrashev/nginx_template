@@ -4,9 +4,9 @@
   "description": "task",
   "main": "App.tsx",
   "scripts": {
-    "dev": "webpack --watch --config webpack.config.js",
-    "build": "webpack --config webpack.config.js",
-    "start": "webpack serve --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js",
+    "build": "env=production webpack --config webpack.config.js",
+    "start": "env=development webpack serve --config webpack.config.js",
     "prepare": "cd .. && husky install",
     "lint": "eslint . --ext .ts,.tsx"
   },

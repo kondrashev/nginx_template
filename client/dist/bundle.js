@@ -3507,6 +3507,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./constants/constants.ts":
+/*!********************************!*\
+  !*** ./constants/constants.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   API_BASE_URL: () => (/* binding */ API_BASE_URL)\n/* harmony export */ });\nvar API_BASE_URL =  false ? 0 : 'api';\n\n//# sourceURL=webpack://nginx/./constants/constants.ts?");
+
+/***/ }),
+
 /***/ "./constants/endpoints.ts":
 /*!********************************!*\
   !*** ./constants/endpoints.ts ***!
@@ -3514,7 +3525,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  userRouter: 'api',\n  checkAuthorization: '/check',\n  getUsers: '/get/users',\n  addUser: '/add/user',\n  deleteUsers: '/delete/users',\n  uploadFile: '/upload/file'\n});\n\n//# sourceURL=webpack://nginx/./constants/endpoints.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ \"./constants/constants.ts\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  userRouter: _constants__WEBPACK_IMPORTED_MODULE_0__.API_BASE_URL,\n  checkAuthorization: '/check',\n  getUsers: '/get/users',\n  addUser: '/add/user',\n  deleteUsers: '/delete/users',\n  uploadFile: '/upload/file'\n});\n\n//# sourceURL=webpack://nginx/./constants/endpoints.ts?");
 
 /***/ }),
 
@@ -3635,7 +3646,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".formAuthorization {\\n  width: 400px;\\n  height: 350px;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: space-around;\\n  align-items: center;\\n  background: #cbd7e3;\\n  border-radius: 10px;\\n  position: absolute;\\n  left: 50%;\\n  transform: translate(-50%, 80%);\\n}\\n.formAuthorization .fields {\\n  width: 360px;\\n  height: 50px;\\n}\\n.formAuthorization .formAlert {\\n  position: absolute;\\n  top: 208px;\\n  left: 15%;\\n}\\n.formAuthorization .inputErrorLogin {\\n  position: absolute;\\n  top: 100px;\\n  left: 30px;\\n  font-size: 13px;\\n  color: red;\\n}\\n.formAuthorization .inputErrorPassword {\\n  position: absolute;\\n  top: 210px;\\n  left: 30px;\\n  font-size: 13px;\\n  color: red;\\n}\\n.formAuthorization .switch {\\n  position: absolute;\\n  top: 225px;\\n  left: 30px;\\n  color: #fff;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://nginx/./src/styles/AuthorizationForm.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".formAuthorization {\\n  width: 400px;\\n  height: 350px;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: space-around;\\n  align-items: center;\\n  background: #494d51;\\n  border-radius: 10px;\\n  position: absolute;\\n  left: 50%;\\n  transform: translate(-50%, 80%);\\n}\\n.formAuthorization .fields {\\n  width: 360px;\\n  height: 50px;\\n}\\n.formAuthorization .formAlert {\\n  position: absolute;\\n  top: 208px;\\n  left: 15%;\\n}\\n.formAuthorization .inputErrorLogin {\\n  position: absolute;\\n  top: 100px;\\n  left: 30px;\\n  font-size: 13px;\\n  color: red;\\n}\\n.formAuthorization .inputErrorPassword {\\n  position: absolute;\\n  top: 210px;\\n  left: 30px;\\n  font-size: 13px;\\n  color: red;\\n}\\n.formAuthorization .switch {\\n  position: absolute;\\n  top: 225px;\\n  left: 30px;\\n  color: #fff;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://nginx/./src/styles/AuthorizationForm.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
