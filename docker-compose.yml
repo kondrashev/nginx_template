@@ -12,6 +12,8 @@ services:
     volumes:
       - nps_data:/var/lib/postgresql/data
     restart: always
+    networks:
+      - app
   server:
     container_name: server
     platform: linux/amd64
@@ -30,19 +32,36 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
+    networks:
+      - app
   client:
     container_name: client
     platform: linux/amd64
     build:
-      dockerfile: Dockerfile
       context: ./client
     restart: always
-    ports:
-      - 80:4000
     links:
       - server
     volumes:
       - /app/node_modules
       - ./client:/app
+    networks:
+      - app
+  nginx:
+    container_name: nginx
+    depends_on:
+      - server
+      - client
+    image: nginx:latest
+    volumes:
+      - ./:/etc/nginx/conf.d/:ro
+      - ./client/dist:/dist/:rw
+    ports:
+      - 80:80
+    networks:
+      - app
 volumes:
   nps_data: {}
+networks:
+  app:
+    driver: bridge

@@ -12,6 +12,8 @@ services:
     volumes:
       - nps_data:/var/lib/postgresql/data
     restart: always
+    networks:
+      - app
   server:
     container_name: server
     image: kondrashev/nginx_server:latest
@@ -25,12 +27,16 @@ services:
       - 3000:3000
     links:
       - database
+    networks:
+      - app
   client:
     container_name: client
     image: kondrashev/nginx_client:latest
     restart: always
     links:
       - server
+    networks:
+      - app
   nginx:
     container_name: nginx
     depends_on:
@@ -44,5 +50,10 @@ services:
     ports:
       - 80:80
       - 443:443
+    networks:
+      - app
 volumes:
   nps_data: {}
+networks:
+  app:
+    driver: bridge
