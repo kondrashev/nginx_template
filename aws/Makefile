@@ -1,5 +1,5 @@
 #To start these commands necessary to run this => /sudo make -j 1 start/
-start: 1 2 3
+start: 1 2 3 4
 1:
 	echo "Stop all containers from ec2"
 	sudo docker-compose down
