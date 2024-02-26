@@ -1,11 +1,14 @@
 #To start these commands necessary to run this => /sudo make -j 1 start/
 start: 1 2 3
 1:
-	echo "Pull the image server of project from ec2"
-	sudo docker pull kondrashev/nginx_server:latest
+	echo "Stop all containers from ec2"
+	sudo docker-compose down
 2:
-	echo "Pull the image client of project from ec2"
-	sudo docker pull kondrashev/nginx_client:latest
+	echo "Delete the image server of project from ec2"
+	sudo docker rmi kondrashev/nginx_server:latest
 3:
-	echo "Recreate all containers from ec2"
-	sudo docker-compose up -d --build
+	echo "Delete the image client of project from ec2"
+	sudo docker rmi kondrashev/nginx_client:latest
+4:
+	echo "Run all containers from ec2"
+	sudo docker-compose up -d
